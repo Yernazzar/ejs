@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+
+    <title>My Blog</title>
+</head>
+<body>
+    <h1>My Blog</h1>
+    <ul>
+        <% blogPosts.forEach(post => { %>
+            <li>
+                <strong><%= post.title %></strong> - <%= post.content.substring(0, 100) %>
+                <a href="/blog/<%= post.id %>">Read more</a>
+            </li>
+        <% }); %>
+    </ul>
+    <form action="/new" method="get">
+        <button type="submit">Add new post</button>
+    </form>
+</body>
+</html>
