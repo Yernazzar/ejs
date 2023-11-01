@@ -13,9 +13,11 @@
         <% blogPosts.forEach(post => { %>
             <li>
                 <strong><%= post.title %></strong> - <%= post.content.substring(0, 100) %>
-                <a href="/blog/<%= post.id %>">Read more</a>
+                <% if (post.content.length > 100) { %>
+                    <a href="/blog/<%= post.id %>">Read more</a>
+                <% } %>
             </li>
-        <% }); %>
+        <% }); %>        
     </ul>
     <form action="/new" method="get">
         <button type="submit">Add new post</button>
